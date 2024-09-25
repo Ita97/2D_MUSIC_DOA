@@ -117,10 +117,22 @@ function [doa, spectrum] = MUSIC_DOA_2D(x, SensorArray, fc, az_range, el_range, 
         plot3(az,el,max_PdB,'ro')   % DoA peaks
         
         xlim([az_range(1),az_range(end)]); ylim([el_range(1),el_range(end)]);
-        title('Custom MUSIC')
-        xlabel('Azimuth Angle [deg]')
-        ylabel('Elevation Angle [deg]')
-        zlabel('Power [dB]')
+        xlabel('Azimuth Angle [deg]','Interpreter','latex','FontSize',12,'Rotation',13, 'Position',[-17.6,-95.3,-26.1])
+        ylabel('Elevation Angle [deg]','Interpreter','latex','FontSize',12,'Rotation',-36,'Position',[-72.7,1.7,-23.1])
+        zlabel('Power [dB]','Interpreter','latex','FontSize',12)
+        xticks= get(gca,"XAxis");
+        xticks.TickLabelInterpreter="latex";
+        yticks= get(gca,"YAxis");
+        yticks.TickLabelInterpreter="latex";
+        zticks= get(gca,"ZAxis");
+        zticks.TickLabelInterpreter="latex";
+        view(-30,30)
+        grid on
+        cb=colorbar;
+        cb.TickLabelInterpreter = 'latex';
+        cb.FontSize = 10;
+
+        title('2D MUSIC DOA','Interpreter','latex','FontSize',14)
     end
 
 end
